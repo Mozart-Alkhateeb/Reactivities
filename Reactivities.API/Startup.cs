@@ -27,9 +27,21 @@ namespace Reactivities.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(optionsAction=>{
+            services.AddDbContext<AppDbContext>(optionsAction =>
+            {
                 optionsAction.UseSqlite(Configuration.GetConnectionString(nameof(AppDbContext)));
             });
+
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("CorsPolicy", policy => 
+                {
+                    policy.AllowAnyHeader()
+                          .AllowAnyMethod()
+                          .WithOrigins("http://localhost:3000");
+                });
+            });
+
             services.AddControllers();
         }
 
@@ -40,11 +52,14 @@ namespace Reactivities.API
             {
                 app.UseDeveloperExceptionPage();
             }
-            else{
+            else
+            {
                 // app.UseHsts();
             }
 
             // app.UseHttpsRedirection();
+
+            app.UseCors("CorsPolicy");
 
             app.UseRouting();
 

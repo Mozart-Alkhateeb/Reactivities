@@ -3,4 +3,4 @@ obj
 .vs
 appsettings.json
 *.db
-.vscode
+/.vscode
