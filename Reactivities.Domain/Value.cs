@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Reactivities.Domain
+﻿namespace Reactivities.Domain
 {
     public class Value
     {

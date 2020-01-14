@@ -8,8 +8,8 @@ using Reactivities.Persistence;
 namespace Reactivities.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200112200854_SeedValues")]
-    partial class SeedValues
+    [Migration("20200113205846_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
