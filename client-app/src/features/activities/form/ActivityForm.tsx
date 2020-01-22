@@ -1,5 +1,5 @@
 import React, { useState, FormEvent, useContext, useEffect } from 'react';
-import { Segment, Form, Button } from 'semantic-ui-react';
+import { Segment, Form, Button, Grid } from 'semantic-ui-react';
 import { IActivity } from '../../../app/models/activity';
 import { v4 as uuid } from 'uuid';
 import ActivityStore from '../../../app/stores/activityStore';
@@ -62,6 +62,8 @@ const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({ match, hist
   };
 
   return (
+    <Grid>
+      <Grid.Column width={10}>
     <Segment clearing>
       <Form onSubmit={handleSubmit}>
         <Form.Input
@@ -111,6 +113,8 @@ const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({ match, hist
         />
       </Form>
     </Segment>
+      </Grid.Column>
+    </Grid>
   );
 };
 
